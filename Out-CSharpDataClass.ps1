@@ -61,7 +61,7 @@ function ConvertTo-CSharpDataClass {
     $sb = New-Object System.Text.StringBuilder
 
     $null = $sb.Append(@"
-namespace SpoolSample
+namespace StoolSample
 {
     static class Data
     {
@@ -90,4 +90,4 @@ namespace SpoolSample
 $SolutionDir = $SolutionDir.Replace('"','')
 
 $bytes = Get-ContentBytesAndXor -Path $Target
-ConvertTo-CSharpDataClass -Namespace 'SpoolSample' -Class 'Data' -Variable 'RprnDll' -ByteArray $bytes | Out-File -Encoding ascii -FilePath "$($SolutionDir)\SpoolSample\Data.cs"
+ConvertTo-CSharpDataClass -Namespace 'StoolSample' -Class 'Data' -Variable 'RprnDll' -ByteArray $bytes | Out-File -Encoding ascii -FilePath "$($SolutionDir)\StoolSample\Data.cs"

@@ -1,0 +1,5 @@
+C:\tools\git\StoolSample\StoolSample\bin\Release\StoolSample.dll.config
+C:\tools\git\StoolSample\StoolSample\bin\Release\StoolSample.dll
+C:\tools\git\StoolSample\StoolSample\obj\x64\Release\StoolSample.csproj.AssemblyReference.cache
+C:\tools\git\StoolSample\StoolSample\obj\x64\Release\StoolSample.csproj.CoreCompileInputs.cache
+C:\tools\git\StoolSample\StoolSample\obj\x64\Release\StoolSample.dll
